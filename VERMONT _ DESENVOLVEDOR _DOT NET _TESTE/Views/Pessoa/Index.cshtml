@@ -1,0 +1,38 @@
+﻿@model IEnumerable< VERMONT.Web.Models.Pessoa>
+@{
+    ViewBag.Title = "Lista de Contatos";
+}
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Adicionar Pessoa", "Create")
+</p>
+<table class="table" id="tblPessoas">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nome)
+            </th> 
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var pessoa in Model)
+        {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => pessoa.IdPessoa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => pessoa.Nome)
+            </td>
+
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = pessoa.IdPessoa })
+            </td>
+        </tr>
+            
+        }
+    </tbody>
+</table>
